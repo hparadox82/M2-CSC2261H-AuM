@@ -1,5 +1,7 @@
 // M2-CSC2261H-AuM.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//Project 1: Reverse array
+//Project 1: Reverse array: Write a function that accepts an int array and the array’s size as arguments. 
+// The function should create a copy of the array, except that the element values should be reversed in the copy. 
+// The function should return a pointer to the new array. Demonstrate the function in a complete program
 
 #include <iostream>
 using namespace std;
