@@ -41,7 +41,14 @@ int main()
 
 
     calcAverage(students, studentCnt, testsCnt);
+    printReport(students, studentCnt);
 
+    // Clean up dynamically allocated memory
+    for (int i = 0; i < studentCnt; i++)
+    {
+        delete[] students[i].testScores; //Delete loops for each iteration of student data to ensure proper deallocation
+    }
+    delete[] students;
     return 0;
 }
 
@@ -88,4 +95,13 @@ char calculateLetterGrade(double average)
     else if (average >= 70) return 'C';
     else if (average >= 60) return 'D';
     else return 'F';
+}
+
+//Prints the report consisting of student name, ID, test score and assigned letter grade.
+void printReport(const student students[], int studentCnt) {
+    cout << left << setw(15) << "Student" << setw(10) << "ID" << setw(10) << "Score" << "Grade" << endl;
+    for (int i = 0; i < studentCnt; i++)
+    {
+        cout << left << setw(15) << students[i].name << setw(10) << students[i].id << setw(10) << fixed << setprecision(1) << students[i].average << students[i].grade << endl;
+    }
 }
