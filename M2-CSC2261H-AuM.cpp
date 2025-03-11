@@ -25,3 +25,11 @@ int* revArray(const int arr[], int size) //reverse array function, copies genera
     }
     return nuArray;
 }
+void print(const int arr[], int size) //display function, takes specified array and displays it
+{
+    for (int i = 0; i < size; ++i)
+    {
+        cout << arr[i] << "";
+    }
+    cout << endl;
+}
