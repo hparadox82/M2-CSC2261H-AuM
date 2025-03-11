@@ -29,7 +29,7 @@ int main()
     ifstream inputFile("students.txt");
     if (!inputFile)
     {
-        cout << "Error opening file! Filename should be 'students.txt' and be placed in the program folder.\n\n";
+        cout << "Error opening file! Filename should be 'students' with file type '.txt' and be placed in the program folder.\n\n";
         cout << "Please ensure the student data is structured like this:\n";
         cout << "Number of Students Number of tests\nStudentName IDnumber TestScores(Each score is separated by a space)\n\n";
         return 1;
