@@ -14,6 +14,20 @@ int main()
     //Declares array/size/values.
     const int size = 10;
     int origArray[size] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+    //Displays the array in normal order:
+    print(origArray, size);
+
+    //(reverses array)
+    int* nuArray = revArray(origArray, size);
+
+    //Prints reversed array:
+    print(nuArray, size);
+
+    //Deallocates memory held.
+    delete[] nuArray;
+
+    return 0;
 }
 
 int* revArray(const int arr[], int size) //reverse array function, copies generated array and reverses order as pointer for main funct to access
