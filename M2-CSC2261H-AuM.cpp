@@ -38,10 +38,14 @@ int main()
     int studentCnt, testsCnt;
     student* students = getData(inputFile, studentCnt, testsCnt);
     inputFile.close();
+
+
+    calcAverage(students, studentCnt, testsCnt);
+
+    return 0;
 }
 
 //reads filename "students.txt" that contains all info
-
 student* getData(ifstream& file, int& studentCnt, int& testsCnt)
 {
     file >> studentCnt >> testsCnt;
@@ -59,4 +63,29 @@ student* getData(ifstream& file, int& studentCnt, int& testsCnt)
     }
 
     return students;
+}
+
+//calculates average test scores for students, sends it off to be "converted" into a letter grade to the calculateLetterGrade function below.
+void calcAverage(student students[], int studentCnt, int testsCnt)
+{
+    for (int i = 0; i < studentCnt; i++)
+    {
+        double sum = 0;
+        for (int j = 0; j < testsCnt; j++)
+        {
+            sum += students[i].testScores[j];
+        }
+        students[i].average = sum / testsCnt;
+        students[i].grade = calculateLetterGrade(students[i].average);
+    }
+}
+
+//assigns a corresponding letter to the average test score received, returns to main function
+char calculateLetterGrade(double average)
+{
+    if (average >= 90) return 'A';
+    else if (average >= 80) return 'B';
+    else if (average >= 70) return 'C';
+    else if (average >= 60) return 'D';
+    else return 'F';
 }
