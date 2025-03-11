@@ -16,3 +16,12 @@ int main()
     int origArray[size] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 }
 
+int* revArray(const int arr[], int size) //reverse array function, copies generated array and reverses order as pointer for main funct to access
+{
+    int* nuArray = new int[size];
+    for (int i = 0; i < size; ++i)
+    {
+        nuArray[i] = arr[size - i - 1];
+    }
+    return nuArray;
+}
